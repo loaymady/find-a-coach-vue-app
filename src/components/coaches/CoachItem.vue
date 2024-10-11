@@ -1,7 +1,7 @@
 <template>
   <li class="mt-4 mb-8 border border-[#424242] rounded-xl p-4">
     <h3 class="text-2xl my-2 font-semibold">{{ fullName }}</h3>
-    <h4 class="my-2 font-semibold">${{ rate }}/hour</h4>
+    <h4 class="my-4 font-semibold">${{ rate }}/hour</h4>
     <div>
       <base-badge
         v-for="area in areas"
@@ -30,7 +30,7 @@ export default {
       return this.$route.path + '/' + this.id + '/contact'; // /coaches/c1/contact
     },
     coachDetailsLink() {
-      return this.$route.path + '/' + this.id; // /coaches/c1
+      return this.$route.path + '/' + this.id; // /coaches/c1 
     },
   },
 };

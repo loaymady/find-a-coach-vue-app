@@ -12,7 +12,11 @@
           <h2 class="text-2xl my-2 font-semibold">
             Interested? Reach out now!
           </h2>
-          <BaseButton class="py-3 px-6" link :to="contactLink"
+          <BaseButton
+            class="py-3 px-6"
+            link
+            :to="contactLink"
+            v-if="!this.$route.path.endsWith('/contact')"
             >Contact</BaseButton
           >
         </header>

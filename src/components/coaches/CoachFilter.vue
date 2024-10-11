@@ -5,39 +5,37 @@
     </h5>
 
     <div class="flex space-x-5 max-w-screen-xl mx-auto p-2">
-      <div class="flex items-center me-4">
+      <div class="flex items-center me-4 text-xl">
         <input
           id="frontend"
           type="checkbox"
           checked
           @change="setFilter"
-          class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded dark:focus:ring-0 dark:ring-offset-gray-800 focus:ring-0 dark:bg-gray-700 dark:border-gray-600"
+          class="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded dark:focus:ring-0 dark:ring-offset-gray-800 focus:ring-0 dark:bg-gray-700 dark:border-gray-600"
         />
-        <label for="frontend" class="ms-2 text-sm font-medium text-black"
+        <label for="frontend" class="ms-2 font-medium text-black"
           >Frontend</label
         >
       </div>
-      <div class="flex items-center me-4">
+      <div class="flex items-center me-4 text-xl">
         <input
           id="backend"
           type="checkbox"
           checked
           @change="setFilter"
-          class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded dark:focus:ring-0 dark:ring-offset-gray-800 focus:ring-0 dark:bg-gray-700 dark:border-gray-600"
+          class="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded dark:focus:ring-0 dark:ring-offset-gray-800 focus:ring-0 dark:bg-gray-700 dark:border-gray-600"
         />
-        <label for="backend" class="ms-2 text-sm font-medium text-black"
-          >Backend</label
-        >
+        <label for="backend" class="ms-2 font-medium text-black">Backend</label>
       </div>
-      <div class="flex items-center me-4">
+      <div class="flex items-center me-4 text-xl">
         <input
           id="career"
           type="checkbox"
           checked
           @change="setFilter"
-          class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded dark:focus:ring-0 dark:ring-offset-gray-800 focus:ring-0 dark:bg-gray-700 dark:border-gray-600"
+          class="w-5 h-5 text-blue-600 bg-gray-100 border-gray-300 rounded dark:focus:ring-0 dark:ring-offset-gray-800 focus:ring-0 dark:bg-gray-700 dark:border-gray-600"
         />
-        <label for="career" class="ms-2 text-sm font-medium text-gray-900"
+        <label for="career" class="ms-2 font-medium text-gray-900"
           >Career</label
         >
       </div>
