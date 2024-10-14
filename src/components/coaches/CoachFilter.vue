@@ -4,8 +4,8 @@
       Find Your Coach
     </h5>
 
-    <div class="flex space-x-5 max-w-screen-xl mx-auto p-2">
-      <div class="flex items-center me-4 text-xl">
+    <div class="flex md:space-x-5 space-y-2 md:space-y-0 max-w-screen-xl mx-auto p-2 flex-wrap">
+      <div class="flex items-center me-4 md:me-4 text-xl">
         <input
           id="frontend"
           type="checkbox"
@@ -17,7 +17,7 @@
           >Frontend</label
         >
       </div>
-      <div class="flex items-center me-4 text-xl">
+      <div class="flex items-center me-4 md:me-4 text-xl">
         <input
           id="backend"
           type="checkbox"
@@ -27,7 +27,7 @@
         />
         <label for="backend" class="ms-2 font-medium text-black">Backend</label>
       </div>
-      <div class="flex items-center me-4 text-xl">
+      <div class="flex items-center me-4 md:me-4 text-xl">
         <input
           id="career"
           type="checkbox"
