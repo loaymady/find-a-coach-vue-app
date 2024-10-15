@@ -101,7 +101,7 @@
     <p v-if="!formIsValid" class="text-red-500">
       Please fix the above errors and submit again.
     </p>
-    <base-button class="mt-3">Register</base-button>
+    <base-button class="mt-3 w-fit !px-8 !py-2 !mx-auto">Register</base-button>
   </form>
 </template>
 

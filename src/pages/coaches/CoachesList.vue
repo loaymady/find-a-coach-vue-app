@@ -1,15 +1,23 @@
 <template>
   <div><CoachFilter @change-filter="setFilters" /></div>
-  <!-- <BaseSpinner /> -->
   <div>
     <BaseCard class="mt-6">
       <div class="flex justify-between">
-        <base-button mode="outline">Refresh</base-button>
-        <base-button v-if="!isCoach" link to="/register"
+        <BaseDialog
+          title="An error occurred!"
+          :show="!!error"
+          @close="handleError"
+        >
+          <p>{{ error }}</p>
+        </BaseDialog>
+
+        <base-button mode="outline" @click="loadCoaches(true)">Refresh</base-button>
+        <base-button v-if="!isCoach && !isLoading" link to="/register"
           >Register as Coach</base-button
         >
       </div>
-      <ul>
+      <BaseSpinner class="my-5" v-if="isLoading" />
+      <ul v-else-if="hasCoaches">
         <CoachItem
           v-for="coach in filteredCoaches"
           :key="coach.id"
@@ -20,6 +28,9 @@
           :areas="coach.areas"
         ></CoachItem>
       </ul>
+      <h3 class="text-center my-5 font-semibold text-2xl tracking-wider" v-else>
+        No Coaches Found.
+      </h3>
     </BaseCard>
   </div>
 </template>
@@ -35,6 +46,8 @@ export default {
   },
   data() {
     return {
+      isLoading: false,
+      error: null,
       activeFilters: {
         frontend: true,
         backend: true,
@@ -42,9 +55,26 @@ export default {
       },
     };
   },
+  created() {
+    this.loadCoaches();
+  },
   methods: {
     setFilters(updatedFilters) {
       this.activeFilters = updatedFilters;
+    },
+    async loadCoaches(refresh = false) {
+      this.isLoading = true;
+      try {
+        await this.$store.dispatch('coaches/loadCoaches', {
+          forceRefresh: refresh,
+        });
+      } catch (error) {
+        this.error = error.message || 'Something went wrong!';
+      }
+      this.isLoading = false;
+    },
+    handleError() {
+      this.error = null;
     },
   },
   computed: {
@@ -66,8 +96,9 @@ export default {
         return false;
       });
     },
+    hasCoaches() {
+      return !this.isLoading && this.$store.getters['coaches/hasCoaches'];
+    },
   },
 };
 </script>
-
-<style></style>
