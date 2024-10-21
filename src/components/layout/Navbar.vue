@@ -49,7 +49,7 @@
 
       <div class="hidden w-full md:block md:w-auto" id="navbar-multi-level">
         <ul
-          class="flex flex-col font-medium p-4 md:p-0 mt-4 border rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 border-gray-700"
+          class="flex flex-col items-center font-medium p-4 md:p-0 mt-4 border rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 border-gray-700"
         >
           <li>
             <router-link
@@ -63,7 +63,7 @@
             >
           </li>
 
-          <li>
+          <li v-if="isLoggedIn">
             <router-link
               to="/requests"
               :class="{
@@ -74,6 +74,17 @@
               >Requests</router-link
             >
           </li>
+          <li v-else>
+            <router-link
+              active-class="!text-blue-500"
+              class="block py-2 px-3 text-white rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:p-0"
+              to="/auth"
+              >Login</router-link
+            >
+          </li>
+          <li v-if="isLoggedIn">
+            <base-button @click="logout">Logout</base-button>
+          </li>
         </ul>
       </div>
     </div>
@@ -81,5 +92,17 @@
 </template>
 
 <script>
-export default {};
+export default {
+  computed: {
+    isLoggedIn() {
+      return this.$store.getters.isAuthenticated;
+    },
+  },
+  methods: {
+    logout() {
+      this.$store.dispatch('logout');
+      this.$router.replace('/coaches');
+    },
+  },
+};
 </script>

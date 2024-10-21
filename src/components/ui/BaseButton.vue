@@ -58,6 +58,11 @@ button:active {
   border: none;
 }
 
+.signup {
+  background-color: transparent;
+  color: #3a0061;
+}
+
 .outline {
   background-color: transparent;
   color: #270041;
@@ -69,6 +74,10 @@ button:active {
 .flat:active,
 .outline:hover,
 .outline:active {
+  background-color: #edd2ff;
+}
+
+.signup:hover {
   background-color: #edd2ff;
 }
 </style>
