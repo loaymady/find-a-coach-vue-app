@@ -16,12 +16,12 @@ export default {
   async auth(context, payload) {
     const mode = payload.mode;
     let url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${
-      import.meta.env.VITE_API_KEY
+      import.meta.env.VITE_FIREBASE_API_KEY
     }`;
 
     if (mode === 'signup') {
       url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${
-        import.meta.env.VITE_API_KEY
+        import.meta.env.VITE_FIREBASE_API_KEY
       }`;
     }
 
